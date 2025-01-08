@@ -2,10 +2,8 @@
 
 :root {
   /* Primary Color */
-  --dark-navy: #313e51;
   --navy: #3b4d66;
   --grey-navy: #626c7f;
-  --light-grey: #f4f6fa;
   --white: #fff;
 
   /* Secondary Color */
@@ -22,6 +20,20 @@
   --font-size-body: 0.75rem;
 }
 
+[data-theme="light"] {
+  /* light grey */
+  --bg-color: #f4f6fa;
+  /* dark navy */
+  --text-color: #313e51;
+}
+
+[data-theme="dark"] {
+  /* dark navy */
+  --bg-color: #313e51;
+  /* pure white */
+  --text-color: #fff;
+}
+
 *,
 *::before,
 *::after {
@@ -34,7 +46,14 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 button {
   border: none;
   outline: none;
+  cursor: pointer;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
