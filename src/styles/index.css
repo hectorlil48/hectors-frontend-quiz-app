@@ -1,15 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 :root {
-  /* Primary Color */
-  --navy: #3b4d66;
-  --grey-navy: #626c7f;
-  --white: #fff;
+  --background-color: #f4f6fa;
+  --primary-text-color: #313e51;
 
-  /* Secondary Color */
-  --light-bluish: #abc1e1;
-  --correct-green: #26d782;
-  --error-red: #ee5454;
+  --background-image: url("../assets/images/pattern-background-desktop-light.svg");
 
   /* Font Family and sizes */
   --font-family-main: "Rubik", serif;
@@ -20,18 +15,11 @@
   --font-size-body: 0.75rem;
 }
 
-[data-theme="light"] {
-  /* light grey */
-  --bg-color: #f4f6fa;
-  /* dark navy */
-  --text-color: #313e51;
-}
-
 [data-theme="dark"] {
-  /* dark navy */
-  --bg-color: #313e51;
-  /* pure white */
-  --text-color: #fff;
+  --background-color: #313e51;
+  --primary-text-color: #fff;
+
+  --background-image: url("../assets/images/pattern-background-desktop-dark.svg");
 }
 
 *,
@@ -53,19 +41,13 @@ button {
   cursor: pointer;
 }
 
-body {
-  background-color: var(--bg-color);
+.App {
+  background-color: var(--background-color);
+  width: 100%;
   min-height: 100vh;
-  background-image: url("../assets/images/pattern-background-desktop-light.svg");
+  background-image: var(--background-image);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
-  color: var(--text-color);
-}
-
-#root {
-  border: 2px solid red;
-  max-width: 1160px;
-  margin: 83px auto 0;
+  color: var(--primary-text-color);
 }
