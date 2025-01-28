@@ -50,4 +50,11 @@ button {
   background-position: center;
   background-size: cover;
   color: var(--primary-text-color);
+  transition: var(--background-color 0.25s ease-in-out);
+}
+
+.container {
+  width: 1160px;
+  margin: 0 auto;
+  padding-top: 83px;
 }
