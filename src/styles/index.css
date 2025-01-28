@@ -55,5 +55,17 @@ button {
 
 body {
   background-color: var(--bg-color);
+  min-height: 100vh;
+  background-image: url("../assets/images/pattern-background-desktop-light.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
   color: var(--text-color);
+}
+
+#root {
+  border: 2px solid red;
+  max-width: 1160px;
+  margin: 83px auto 0;
 }
