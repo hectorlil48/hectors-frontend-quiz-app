@@ -15,21 +15,25 @@ const StartMenu = () => {
         <p className="pick-msg">Pick a subject to get started.</p>
       </div>
       <div className="btn-container flex">
-        <button>
-          <img src={htmlIcon} alt="html icon" />
-          HTML
+        <button className="flex btn">
+          <img src={htmlIcon} alt="html icon" className="html-icon" />
+          <span>HTML</span>
         </button>
-        <button>
-          <img src={cssIcon} alt="" />
-          CSS
+        <button className="flex btn">
+          <img src={cssIcon} alt="css icon" className="css-icon" />
+          <span>CSS</span>
         </button>
-        <button>
-          <img src={jsIcon} alt="" />
-          Javascript
+        <button className="flex btn">
+          <img src={jsIcon} alt="javascript icon" className="js-icon" />
+          <span>Javascript</span>
         </button>
-        <button>
-          <img src={accessibilityIcon} alt="" />
-          Accessibility
+        <button className="flex btn">
+          <img
+            src={accessibilityIcon}
+            alt="accessibility icon"
+            className="accessibility-icon"
+          />
+          <span>Accessibility</span>
         </button>
       </div>
     </div>

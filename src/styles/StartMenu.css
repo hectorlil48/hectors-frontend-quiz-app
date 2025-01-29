@@ -11,6 +11,7 @@
 .btn-container {
   flex-direction: column;
   flex: 1;
+  gap: 24px;
 }
 
 .start-menu-title {
@@ -24,4 +25,20 @@
 .pick-msg {
   font-size: var(--body-s);
   color: var(--pick-msg-color);
+}
+
+.html-icon {
+  background-color: var(--html-bg-color);
+}
+
+.css-icon {
+  background-color: var(--css-bg-color);
+}
+
+.js-icon {
+  background-color: var(--js-bg-color);
+}
+
+.accessibility-icon {
+  background-color: var(--accessibility-bg-color);
 }
