@@ -1,34 +1,39 @@
 import accessibilityIcon from "../assets/images/icon-accessibility.svg";
-import sunIcon from "../assets/images/icon-sun-dark.svg";
-import moonIcon from "../assets/images/icon-moon-dark.svg";
+
+import sunIconDark from "../assets/images/icon-sun-dark.svg";
+import moonIconDark from "../assets/images/icon-moon-dark.svg";
+
+import sunIconLight from "../assets/images/icon-sun-light.svg";
+import moonIconLight from "../assets/images/icon-moon-light.svg";
 import "../styles/NavBar.css";
 
-const NavBar = () => {
+const NavBar = ({ handleChange, isChecked }) => {
   return (
     <nav className="navbar flex">
       <div className="logo-icon flex">
-        <img
+        {/* <img
           src={accessibilityIcon}
           alt="question category"
           className="title-icon"
         />
-        <h1>Accessibility</h1>
+        <h1>Accessibility</h1> */}
       </div>
       <div className="toggle-container flex">
-        <img src={sunIcon} alt="sun icon" />
+        <img src={isChecked ? sunIconLight : sunIconDark} alt="Sun icon" />
 
         <div className="toggle-box flex">
           <input
             type="checkbox"
             id="check"
             className="toggle"
-            // onChange={handleChange}
-            // checked={isChecked}
+            onChange={handleChange}
+            checked={isChecked}
+            aria-checked={isChecked}
           />
-          <label htmlFor="check"></label>
+          <label htmlFor="check" aria-label="Toggle dark mode"></label>
         </div>
 
-        <img src={moonIcon} alt="moon icon" />
+        <img src={isChecked ? moonIconLight : moonIconDark} alt="Moon icon" />
       </div>
     </nav>
   );
