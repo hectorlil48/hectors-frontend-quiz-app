@@ -1,0 +1,54 @@
+.navbar {
+  justify-content: space-between;
+}
+
+.logo-icon {
+  gap: 24px;
+}
+
+.title-icon {
+  background-color: var(--accessibility-bg-color);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.toggle-container {
+  gap: 16px;
+}
+
+.toggle {
+  visibility: hidden;
+}
+
+.toggle + label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.toggle + label::before {
+  content: "";
+  height: 28px;
+  width: 48px;
+  border-radius: 1em;
+  background-color: var(--purple);
+  transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
+}
+
+.toggle + label::after {
+  content: "";
+  height: 20px;
+  width: 20px;
+  border-radius: 1em;
+  background-color: var(--pure-white);
+  position: absolute;
+  top: 50%; /* Center it vertically */
+  left: 4px; /* Small padding from the left */
+  transform: translateY(-50%); /* Adjust to center */
+  transition: transform 250ms ease-in-out;
+}
+
+.toggle:checked + label::after {
+  transform: translate(20px, -50%); /* Moves the circle right */
+}

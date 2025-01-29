@@ -3,6 +3,9 @@
 :root {
   --background-color: #f4f6fa;
   --primary-text-color: #313e51;
+  --accessibility-bg-color: #f6e7ff;
+  --purple: #a729f5;
+  --pure-white: #fff;
 
   --background-image: url("../assets/images/pattern-background-desktop-light.svg");
 
@@ -11,7 +14,7 @@
   --font-size-display: 9rem;
   --font-size-heading-L: 4rem;
   --font-size-heading-M: 2.25rem;
-  --font-size-heading-S: 2.25rem;
+  --font-size-heading-S: 1.75rem;
   --font-size-body: 0.75rem;
 }
 
@@ -41,6 +44,10 @@ button {
   cursor: pointer;
 }
 
+body {
+  font-family: var(--font-family-main);
+}
+
 .App {
   background-color: var(--background-color);
   width: 100%;
@@ -53,8 +60,20 @@ button {
   transition: var(--background-color 0.25s ease-in-out);
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container {
   width: 1160px;
   margin: 0 auto;
   padding-top: 83px;
+}
+
+h1 {
+  color: var(--primary-text-color);
+  font-size: var(--font-size-heading-S);
+  font-weight: 500;
 }
