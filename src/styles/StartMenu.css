@@ -1,0 +1,27 @@
+.start-menu-container {
+  width: 100%;
+  justify-content: start;
+  align-items: start;
+}
+
+.welcome-msg {
+  flex: 1;
+}
+
+.btn-container {
+  flex-direction: column;
+  flex: 1;
+}
+
+.start-menu-title {
+  margin-bottom: 48px;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.pick-msg {
+  font-size: var(--body-s);
+  color: var(--pick-msg-color);
+}

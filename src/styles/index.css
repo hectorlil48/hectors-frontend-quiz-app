@@ -4,6 +4,7 @@
   --background-color: #f4f6fa;
   --primary-text-color: #313e51;
   --accessibility-bg-color: #f6e7ff;
+  --pick-msg-color: #626c7f;
   --purple: #a729f5;
   --pure-white: #fff;
 
@@ -16,11 +17,13 @@
   --font-size-heading-M: 2.25rem;
   --font-size-heading-S: 1.75rem;
   --font-size-body: 0.75rem;
+  --body-s: 1.25rem;
 }
 
 [data-theme="dark"] {
   --background-color: #313e51;
   --primary-text-color: #fff;
+  --pick-msg-color: #abc1e1;
 
   --background-image: url("../assets/images/pattern-background-desktop-dark.svg");
 }
@@ -73,7 +76,12 @@ body {
 }
 
 h1 {
-  color: var(--primary-text-color);
   font-size: var(--font-size-heading-S);
   font-weight: 500;
+}
+
+h2 {
+  font-size: var(--font-size-heading-L);
+  font-weight: 300;
+  line-height: 1.2;
 }
