@@ -29,6 +29,7 @@ const NavBar = ({ handleChange, isChecked }) => {
             onChange={handleChange}
             checked={isChecked}
             aria-checked={isChecked}
+            tabIndex="0"
           />
           <label htmlFor="check" aria-label="Toggle dark mode"></label>
         </div>
