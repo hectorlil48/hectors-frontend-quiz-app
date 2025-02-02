@@ -1,5 +1,3 @@
-import accessibilityIcon from "../assets/images/icon-accessibility.svg";
-
 import sunIconDark from "../assets/images/icon-sun-dark.svg";
 import moonIconDark from "../assets/images/icon-moon-dark.svg";
 
