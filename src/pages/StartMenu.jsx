@@ -30,7 +30,7 @@ const StartMenu = () => {
             <img
               src={`${import.meta.env.BASE_URL}${quiz.icon}`}
               alt={`${quiz.title} icon`}
-              className="html-icon"
+              className={`${quiz.title.toLowerCase()}-icon`}
             />
             <span>{quiz.title}</span>
           </button>

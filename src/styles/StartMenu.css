@@ -25,6 +25,7 @@
 .pick-msg {
   font-size: var(--body-s);
   color: var(--pick-msg-color);
+  transition: color 0.25s ease-in-out;
 }
 
 .html-icon {
@@ -35,7 +36,7 @@
   background-color: var(--css-bg-color);
 }
 
-.js-icon {
+.javascript-icon {
   background-color: var(--js-bg-color);
 }
 
