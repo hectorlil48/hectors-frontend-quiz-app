@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
 import "../styles/StartMenu.css";
 
-const StartMenu = () => {
+const StartMenu = ({ setQuizData, setQuizTitle, setQuizIcon }) => {
   const [quizzes, setQuizzes] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("/hectors-frontend-quiz-app/data.json")
@@ -14,6 +13,12 @@ const StartMenu = () => {
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
+
+  const handleQuizSelection = (quiz) => {
+    setQuizTitle(quiz.title); // Store quiz title in local storage
+    setQuizIcon(quiz.icon);
+    setQuizData({ ...quiz, index: 0, completed: false }); // Store quiz data
+  };
 
   return (
     <div className="start-menu-container flex">
@@ -26,7 +31,11 @@ const StartMenu = () => {
       </div>
       <div className="btn-container flex">
         {quizzes.map((quiz, index) => (
-          <button key={index} className="flex btn">
+          <button
+            key={index}
+            className="flex btn"
+            onClick={() => handleQuizSelection(quiz)}
+          >
             <img
               src={`${import.meta.env.BASE_URL}${quiz.icon}`}
               alt={`${quiz.title} icon`}
@@ -35,27 +44,6 @@ const StartMenu = () => {
             <span>{quiz.title}</span>
           </button>
         ))}
-
-        {/* <button className="flex btn">
-          <img src={htmlIcon} alt="html icon" className="html-icon" />
-          <span>HTML</span>
-        </button>
-        <button className="flex btn">
-          <img src={cssIcon} alt="css icon" className="css-icon" />
-          <span>CSS</span>
-        </button>
-        <button className="flex btn">
-          <img src={jsIcon} alt="javascript icon" className="js-icon" />
-          <span>Javascript</span>
-        </button>
-        <button className="flex btn">
-          <img
-            src={accessibilityIcon}
-            alt="accessibility icon"
-            className="accessibility-icon"
-          />
-          <span>Accessibility</span>
-        </button> */}
       </div>
     </div>
   );
