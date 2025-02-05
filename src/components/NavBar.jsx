@@ -8,14 +8,16 @@ import "../styles/NavBar.css";
 const NavBar = ({ handleChange, isChecked, quizTitle, quizIcon }) => {
   return (
     <nav className="navbar flex">
-      <div className="logo-icon flex">
-        <img
-          src={`${import.meta.env.BASE_URL}${quizIcon}`}
-          alt="question category"
-          className="title-icon"
-        />
-        <h1>{quizTitle}</h1>
-      </div>
+      {quizTitle && (
+        <div className="logo-icon flex">
+          <img
+            src={`${import.meta.env.BASE_URL}${quizIcon}`}
+            alt="question category"
+            className="title-icon"
+          />
+          <h1>{quizTitle}</h1>
+        </div>
+      )}
       <div className="toggle-container flex">
         <img src={isChecked ? sunIconLight : sunIconDark} alt="Sun icon" />
 

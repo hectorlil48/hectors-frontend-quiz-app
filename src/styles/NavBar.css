@@ -1,6 +1,7 @@
 .navbar {
   justify-content: space-between;
   margin-bottom: 85px;
+  height: 56px;
 }
 
 .logo-icon {
@@ -15,6 +16,7 @@
 
 .toggle-container {
   gap: 16px;
+  margin-left: auto;
 }
 
 .toggle {
