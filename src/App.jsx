@@ -32,8 +32,8 @@ function App() {
         ) : (
           <QuizPage
             quizData={quizData}
-            setQuizData="setQuizData"
-            setScore="setScore"
+            setQuizData={setQuizData}
+            setScore={setScore}
           />
         )}
       </div>

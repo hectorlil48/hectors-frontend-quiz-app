@@ -25,7 +25,39 @@
   color: var(--grey-navy);
 }
 
+.answer-letter-color {
+  background-color: var(--light-grey);
+  color: var(--grey-navy);
+}
+
+button:hover .answer-letter-color {
+  background-color: var(--light-pink);
+  color: var(--purple);
+}
+
+.selected-letter {
+  background-color: var(--purple);
+  color: var(--pure-white);
+}
+
 button.submit-btn {
   background-color: var(--purple);
   color: var(--pure-white);
+  margin-top: 8px;
+}
+
+button.submit-btn:hover {
+  background-color: var(--light-purple);
+}
+
+.selected {
+  border: 3px solid var(--purple);
+}
+
+.incorrect {
+  border: 3px solid var(--red);
+}
+
+.incorrect-letter {
+  background-color: var(--red);
 }

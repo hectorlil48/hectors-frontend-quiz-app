@@ -8,9 +8,12 @@
   --box-shadow-color: rgba(143, 160, 193, 0.14);
 
   --purple: #a729f5;
+  --light-purple: #d394fa;
+  --light-pink: #f6e7ff;
   --pure-white: #fff;
   --light-grey: #f4f6fa;
   --grey-navy: #626c7f;
+  --red: #ee5454;
 
   /* background color for icons */
 
@@ -103,7 +106,8 @@ h2 {
 
 button.btn {
   background-color: var(--btn-bg-color);
-  width: 100%;
+  width: 564px;
+  height: 96px;
   justify-content: start;
   gap: 32px;
   font-size: var(--font-size-heading-S);
