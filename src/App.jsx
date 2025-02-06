@@ -30,7 +30,11 @@ function App() {
         ) : quizData.completed ? (
           <Results />
         ) : (
-          <QuizPage quizData={quizData} />
+          <QuizPage
+            quizData={quizData}
+            setQuizData="setQuizData"
+            setScore="setScore"
+          />
         )}
       </div>
     </div>

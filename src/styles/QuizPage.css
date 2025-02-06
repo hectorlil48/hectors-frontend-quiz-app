@@ -1,0 +1,31 @@
+.quiz-container {
+  align-items: start;
+  gap: 131px;
+}
+
+.question-container {
+  flex: 1;
+}
+
+.question {
+  margin-top: 27px;
+  font-size: var(--font-size-heading-M);
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.answers {
+  flex: 1;
+}
+
+.answer-letters {
+  padding: 16px 18px 12px;
+  border-radius: 6px;
+  background-color: var(--light-grey);
+  color: var(--grey-navy);
+}
+
+button.submit-btn {
+  background-color: var(--purple);
+  color: var(--pure-white);
+}
