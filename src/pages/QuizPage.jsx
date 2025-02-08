@@ -12,6 +12,7 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
   const [isWrong, setIsWrong] = useState(false);
   const [showCorrect, setShowCorrect] = useState(false);
   const [attempts, setAttempts] = useState(0);
+  const [answeredCorrectly, setAnsweredCorrectly] = useState(false); // Track if the answer was correct on the first attempt
 
   const handleAnswerSelect = (answer) => {
     if (attempts < 2) {
@@ -29,15 +30,19 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
 
     if (selectedAnswer === question.answer) {
       setScore((prev) => prev + 1);
-      setShowCorrect(true);
+      if (attempts === 0) {
+        setAnsweredCorrectly(true); // Mark as correct on the first attempt
+      }
+      setShowCorrect(true); // Show correct answer after submission
       setTimeout(() => goToNextQuestion(), 1000);
     } else {
       setIsWrong(true);
       setAttempts((prev) => prev + 1);
 
       if (attempts + 1 === 2) {
-        setShowCorrect(true); // Show the correct answer
-        setTimeout(() => goToNextQuestion(), 1000);
+        // Show correct answer on the second attempt
+        setShowCorrect(true);
+        setTimeout(() => goToNextQuestion(), 1500);
       }
     }
   };
@@ -48,6 +53,7 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
       setSelectedAnswer(null);
       setIsWrong(false);
       setShowCorrect(false);
+      setAnsweredCorrectly(false); // Reset answeredCorrectly for the next question
       setAttempts(0);
     } else {
       setQuizData({ ...quizData, completed: true });
@@ -66,14 +72,23 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
         {question.options.map((option, i) => {
           const isSelected = selectedAnswer === option;
           const isIncorrect = isWrong && isSelected;
-          const isCorrectAnswer = showCorrect && option === question.answer;
+          const isCorrectAnswer = option === question.answer;
 
           return (
             <button
               key={i}
               className={`btn flex ${isSelected ? "selected" : ""} 
                 ${isIncorrect ? "incorrect" : ""} 
-                ${isCorrectAnswer ? "correct" : ""}`}
+                ${
+                  showCorrect && isCorrectAnswer && attempts === 0
+                    ? "correct"
+                    : ""
+                } 
+                ${
+                  showCorrect && isCorrectAnswer && attempts === 1
+                    ? "correct"
+                    : ""
+                }`} // Apply "correct" on the first and second attempts
               onClick={() => handleAnswerSelect(option)}
               disabled={attempts === 2}
             >
@@ -82,7 +97,16 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
                   className={`answer-letters flex 
                     ${isSelected ? "selected-letter" : "answer-letter-color"} 
                     ${isIncorrect ? "incorrect-letter" : ""} 
-                    ${isCorrectAnswer ? "correct-letter" : ""}`}
+                    ${
+                      showCorrect && isCorrectAnswer && attempts === 0
+                        ? "correct-letter"
+                        : ""
+                    } 
+                    ${
+                      showCorrect && isCorrectAnswer && attempts === 1
+                        ? "correct-letter"
+                        : ""
+                    }`} // Apply "correct-letter" on both attempts
                 >
                   {answerLetters[i]}
                 </span>
@@ -96,7 +120,7 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
                   className="icon-incorrect"
                 />
               )}
-              {isCorrectAnswer && (
+              {showCorrect && isCorrectAnswer && (
                 <img src={correctIcon} alt="Correct" className="icon-correct" />
               )}
             </button>

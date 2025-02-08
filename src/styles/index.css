@@ -110,7 +110,6 @@ button.btn {
   width: 564px;
   height: 96px;
   justify-content: space-between;
-  gap: 32px;
   font-size: var(--font-size-heading-S);
   font-weight: 500;
   padding: 20px;
