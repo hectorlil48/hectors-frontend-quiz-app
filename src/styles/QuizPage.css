@@ -14,8 +14,8 @@
   line-height: 120%;
 }
 
-.answers {
-  flex: 1;
+.btn-content {
+  gap: 32px;
 }
 
 .answer-letters {
@@ -60,4 +60,19 @@ button.submit-btn:hover {
 
 .incorrect-letter {
   background-color: var(--red);
+}
+
+.correct {
+  border: 3px solid var(--green);
+}
+
+.correct-letter {
+  background-color: var(--green);
+  color: var(--pure-white);
+}
+
+.btn .icon-incorrect,
+.btn .icon-correct {
+  padding: 0;
+  border-radius: 0;
 }

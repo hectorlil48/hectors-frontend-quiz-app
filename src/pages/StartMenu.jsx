@@ -36,12 +36,14 @@ const StartMenu = ({ setQuizData, setQuizTitle, setQuizIcon }) => {
             className="flex btn"
             onClick={() => handleQuizSelection(quiz)}
           >
-            <img
-              src={`${import.meta.env.BASE_URL}${quiz.icon}`}
-              alt={`${quiz.title} icon`}
-              className={`${quiz.title.toLowerCase()}-icon`}
-            />
-            <span>{quiz.title}</span>
+            <div className="flex btn-content">
+              <img
+                src={`${import.meta.env.BASE_URL}${quiz.icon}`}
+                alt={`${quiz.title} icon`}
+                className={`${quiz.title.toLowerCase()}-icon`}
+              />
+              <span>{quiz.title}</span>
+            </div>
           </button>
         ))}
       </div>

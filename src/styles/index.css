@@ -14,6 +14,7 @@
   --light-grey: #f4f6fa;
   --grey-navy: #626c7f;
   --red: #ee5454;
+  --green: #26d782;
 
   /* background color for icons */
 
@@ -108,7 +109,7 @@ button.btn {
   background-color: var(--btn-bg-color);
   width: 564px;
   height: 96px;
-  justify-content: start;
+  justify-content: space-between;
   gap: 32px;
   font-size: var(--font-size-heading-S);
   font-weight: 500;
