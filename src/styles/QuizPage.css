@@ -1,10 +1,13 @@
 .quiz-container {
   align-items: start;
-  gap: 131px;
 }
 
 .question-container {
   flex: 1;
+}
+
+.pick-msg-container {
+  width: 465px;
 }
 
 .question {
@@ -76,4 +79,11 @@ button.submit-btn:hover {
 .btn .icon-correct {
   padding: 0;
   border-radius: 0;
+}
+
+.error-message {
+  color: var(--red);
+  font-size: var(--font-size-body-M);
+  line-height: 150%;
+  gap: 8px;
 }

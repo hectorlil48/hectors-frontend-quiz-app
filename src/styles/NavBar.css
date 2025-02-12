@@ -9,9 +9,8 @@
 }
 
 .title-icon {
-  background-color: var(--accessibility-bg-color);
   padding: 8px;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 .toggle-container {

@@ -12,27 +12,26 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
   const [isWrong, setIsWrong] = useState(false);
   const [showCorrect, setShowCorrect] = useState(false);
   const [attempts, setAttempts] = useState(0);
-  const [answeredCorrectly, setAnsweredCorrectly] = useState(false); // Track if the answer was correct on the first attempt
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
 
   const handleAnswerSelect = (answer) => {
     if (attempts < 2) {
       setSelectedAnswer(answer);
       setIsWrong(false); // Reset wrong state when selecting a new option
       setShowCorrect(false); // Hide correct styling until submit
+      setShowErrorMessage(false);
     }
   };
 
   const handleSubmit = () => {
     if (selectedAnswer === null) {
-      alert("Please select an answer!");
+      setShowErrorMessage(true);
       return;
     }
 
     if (selectedAnswer === question.answer) {
       setScore((prev) => prev + 1);
-      if (attempts === 0) {
-        setAnsweredCorrectly(true); // Mark as correct on the first attempt
-      }
+
       setShowCorrect(true); // Show correct answer after submission
       setTimeout(() => goToNextQuestion(), 1000);
     } else {
@@ -53,8 +52,8 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
       setSelectedAnswer(null);
       setIsWrong(false);
       setShowCorrect(false);
-      setAnsweredCorrectly(false); // Reset answeredCorrectly for the next question
       setAttempts(0);
+      setShowErrorMessage(false);
     } else {
       setQuizData({ ...quizData, completed: true });
     }
@@ -63,10 +62,12 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
   return (
     <div className="quiz-container flex">
       <div className="question-container">
-        <p className="pick-msg">
-          Question {index + 1} of {questions.length}
-        </p>
-        <h3 className="question">{question.question}</h3>
+        <div className="pick-msg-container">
+          <p className="pick-msg">
+            Question {index + 1} of {questions.length}
+          </p>
+          <h3 className="question">{question.question}</h3>
+        </div>
       </div>
       <div className="answers btn-container flex">
         {question.options.map((option, i) => {
@@ -79,16 +80,11 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
               key={i}
               className={`btn flex ${isSelected ? "selected" : ""} 
                 ${isIncorrect ? "incorrect" : ""} 
-                ${
-                  showCorrect && isCorrectAnswer && attempts === 0
-                    ? "correct"
-                    : ""
-                } 
-                ${
-                  showCorrect && isCorrectAnswer && attempts === 1
-                    ? "correct"
-                    : ""
-                }`} // Apply "correct" on the first and second attempts
+               ${
+                 showCorrect && isCorrectAnswer && attempts <= 1
+                   ? "correct"
+                   : ""
+               }`} // Apply "correct" on the first and second attempts
               onClick={() => handleAnswerSelect(option)}
               disabled={attempts === 2}
             >
@@ -97,16 +93,11 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
                   className={`answer-letters flex 
                     ${isSelected ? "selected-letter" : "answer-letter-color"} 
                     ${isIncorrect ? "incorrect-letter" : ""} 
-                    ${
-                      showCorrect && isCorrectAnswer && attempts === 0
-                        ? "correct-letter"
-                        : ""
-                    } 
-                    ${
-                      showCorrect && isCorrectAnswer && attempts === 1
-                        ? "correct-letter"
-                        : ""
-                    }`} // Apply "correct-letter" on both attempts
+                   ${
+                     showCorrect && isCorrectAnswer && attempts <= 1
+                       ? "correct-letter"
+                       : ""
+                   }`} // Apply "correct-letter" on both attempts
                 >
                   {answerLetters[i]}
                 </span>
@@ -129,6 +120,12 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
         <button className="btn submit-btn" onClick={handleSubmit}>
           Submit Answer
         </button>
+        {showErrorMessage && (
+          <div className="flex error-message">
+            <img src={errorIcon} alt="Incorrect" className="icon-incorrect" />
+            <p>Please select an answer</p>
+          </div>
+        )}
       </div>
     </div>
   );

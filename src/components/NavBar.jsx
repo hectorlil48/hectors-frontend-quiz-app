@@ -13,7 +13,7 @@ const NavBar = ({ handleChange, isChecked, quizTitle, quizIcon }) => {
           <img
             src={`${import.meta.env.BASE_URL}${quizIcon}`}
             alt="question category"
-            className="title-icon"
+            className={`title-icon ${quizTitle.toLowerCase()}-icon`}
           />
           <h1>{quizTitle}</h1>
         </div>
