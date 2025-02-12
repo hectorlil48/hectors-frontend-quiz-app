@@ -28,7 +28,15 @@ function App() {
             setQuizIcon={setQuizIcon}
           />
         ) : quizData.completed ? (
-          <Results />
+          <Results
+            score={score}
+            setScore={setScore}
+            totalQuestions={quizData.questions.length}
+            setQuizData={setQuizData}
+            setQuizTitle={setQuizTitle}
+            quizTitle={quizTitle}
+            quizIcon={quizIcon}
+          />
         ) : (
           <QuizPage
             quizData={quizData}

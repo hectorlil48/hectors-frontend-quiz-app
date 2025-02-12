@@ -1,0 +1,32 @@
+.results-container {
+  align-items: start;
+}
+
+.results-title {
+  flex: 1;
+}
+
+.score-card {
+  flex: 1;
+}
+
+.score-header {
+  background-color: var(--btn-bg-color);
+  padding: 48px;
+  border-radius: 24px;
+  flex-direction: column;
+  margin-bottom: 32px;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.score-header .pick-msg {
+  font-size: var(--font-size-body-M);
+  line-height: 150%;
+}
+
+.score-title {
+  font-size: var(--font-size-display);
+  font-weight: 500;
+  line-height: 100%;
+  margin: 40px 0 16px;
+}
