@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/QuizPage.css";
 import correctIcon from "../assets/images/icon-correct.svg";
 import errorIcon from "../assets/images/icon-error.svg";
@@ -13,12 +13,26 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
   const [showCorrect, setShowCorrect] = useState(false);
   const [attempts, setAttempts] = useState(0);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
+  const [shuffledOptions, setShuffledOptions] = useState([]);
+
+  // Shuffle function using Fisher-Yates algorithm
+  const shuffleArray = (array) => {
+    return array
+      .map((item) => ({ item, sort: Math.random() })) // Assign random sort values
+      .sort((a, b) => a.sort - b.sort) // Sort based on random values
+      .map(({ item }) => item); // Extract shuffled items
+  };
+
+  // Shuffle options when the question changes
+  useEffect(() => {
+    setShuffledOptions(shuffleArray(question.options));
+  }, [index]);
 
   const handleAnswerSelect = (answer) => {
     if (attempts < 2) {
       setSelectedAnswer(answer);
-      setIsWrong(false); // Reset wrong state when selecting a new option
-      setShowCorrect(false); // Hide correct styling until submit
+      setIsWrong(false);
+      setShowCorrect(false);
       setShowErrorMessage(false);
     }
   };
@@ -31,15 +45,13 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
 
     if (selectedAnswer === question.answer) {
       setScore((prev) => prev + 1);
-
-      setShowCorrect(true); // Show correct answer after submission
+      setShowCorrect(true);
       setTimeout(() => goToNextQuestion(), 1000);
     } else {
       setIsWrong(true);
       setAttempts((prev) => prev + 1);
 
       if (attempts + 1 === 2) {
-        // Show correct answer on the second attempt
         setShowCorrect(true);
         setTimeout(() => goToNextQuestion(), 1500);
       }
@@ -70,7 +82,7 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
         </div>
       </div>
       <div className="answers btn-container flex">
-        {question.options.map((option, i) => {
+        {shuffledOptions.map((option, i) => {
           const isSelected = selectedAnswer === option;
           const isIncorrect = isWrong && isSelected;
           const isCorrectAnswer = option === question.answer;
@@ -84,7 +96,7 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
                  showCorrect && isCorrectAnswer && attempts <= 1
                    ? "correct"
                    : ""
-               }`} // Apply "correct" on the first and second attempts
+               }`}
               onClick={() => handleAnswerSelect(option)}
               disabled={attempts === 2}
             >
@@ -97,7 +109,7 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
                      showCorrect && isCorrectAnswer && attempts <= 1
                        ? "correct-letter"
                        : ""
-                   }`} // Apply "correct-letter" on both attempts
+                   }`}
                 >
                   {answerLetters[i]}
                 </span>
