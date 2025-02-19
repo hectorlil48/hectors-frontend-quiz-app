@@ -25,8 +25,10 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
 
   // Shuffle options when the question changes
   useEffect(() => {
-    setShuffledOptions(shuffleArray(question.options));
-  }, [index]);
+    if (questions[index]) {
+      setShuffledOptions(shuffleArray(questions[index].options));
+    }
+  }, [index, questions]);
 
   const handleAnswerSelect = (answer) => {
     if (attempts < 2) {
@@ -129,7 +131,11 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
             </button>
           );
         })}
-        <button className="btn submit-btn" onClick={handleSubmit}>
+        <button
+          className="btn submit-btn"
+          onClick={handleSubmit}
+          disabled={selectedAnswer === null}
+        >
           Submit Answer
         </button>
         {showErrorMessage && (

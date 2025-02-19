@@ -30,22 +30,28 @@ const StartMenu = ({ setQuizData, setQuizTitle, setQuizIcon }) => {
         <p className="pick-msg">Pick a subject to get started.</p>
       </div>
       <div className="btn-container flex">
-        {quizzes.map((quiz, index) => (
-          <button
-            key={index}
-            className="flex btn"
-            onClick={() => handleQuizSelection(quiz)}
-          >
-            <div className="flex btn-content">
-              <img
-                src={`${import.meta.env.BASE_URL}${quiz.icon}`}
-                alt={`${quiz.title} icon`}
-                className={`${quiz.title.toLowerCase()}-icon`}
-              />
-              <span>{quiz.title}</span>
-            </div>
-          </button>
-        ))}
+        {quizzes.length === 0 ? (
+          <p className="error-message">
+            Failed to load quizzes. Try refreshing.{" "}
+          </p>
+        ) : (
+          quizzes.map((quiz, index) => (
+            <button
+              key={index}
+              className="flex btn"
+              onClick={() => handleQuizSelection(quiz)}
+            >
+              <div className="flex btn-content">
+                <img
+                  src={`${import.meta.env.BASE_URL}${quiz.icon}`}
+                  alt={`${quiz.title} icon`}
+                  className={`${quiz.title.toLowerCase()}-icon`}
+                />
+                <span>{quiz.title}</span>
+              </div>
+            </button>
+          ))
+        )}
       </div>
     </div>
   );

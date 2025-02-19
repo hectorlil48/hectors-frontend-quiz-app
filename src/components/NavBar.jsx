@@ -10,16 +10,22 @@ const NavBar = ({ handleChange, isChecked, quizTitle, quizIcon }) => {
     <nav className="navbar flex">
       {quizTitle && (
         <div className="logo-icon flex">
-          <img
-            src={`${import.meta.env.BASE_URL}${quizIcon}`}
-            alt="question category"
-            className={`title-icon ${quizTitle.toLowerCase()}-icon`}
-          />
-          <h1>{quizTitle}</h1>
+          <div className="title-icon-box">
+            <img
+              src={`${import.meta.env.BASE_URL}${quizIcon}`}
+              alt="question category"
+              className={`title-icon ${quizTitle.toLowerCase()}-icon`}
+            />
+          </div>
+          <h1 className="logo-title">{quizTitle}</h1>
         </div>
       )}
       <div className="toggle-container flex">
-        <img src={isChecked ? sunIconLight : sunIconDark} alt="Sun icon" />
+        <img
+          src={isChecked ? sunIconLight : sunIconDark}
+          alt="Sun icon"
+          className="icon-size"
+        />
 
         <div className="toggle-box flex">
           <input
@@ -34,7 +40,11 @@ const NavBar = ({ handleChange, isChecked, quizTitle, quizIcon }) => {
           <label htmlFor="check" aria-label="Toggle dark mode"></label>
         </div>
 
-        <img src={isChecked ? moonIconLight : moonIconDark} alt="Moon icon" />
+        <img
+          src={isChecked ? moonIconLight : moonIconDark}
+          alt="Moon icon"
+          className="icon-size"
+        />
       </div>
     </nav>
   );

@@ -1,4 +1,4 @@
-.quiz-container {
+/* .quiz-container {
   align-items: start;
 }
 
@@ -35,6 +35,11 @@
 }
 
 button:hover .answer-letter-color {
+  background-color: var(--light-pink);
+  color: var(--purple);
+}
+
+button:focus .answer-letter-color {
   background-color: var(--light-pink);
   color: var(--purple);
 }
@@ -86,4 +91,4 @@ button.submit-btn:hover {
   font-size: var(--font-size-body-M);
   line-height: 150%;
   gap: 8px;
-}
+} */
