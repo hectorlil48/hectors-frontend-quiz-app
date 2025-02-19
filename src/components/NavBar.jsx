@@ -10,11 +10,13 @@ const NavBar = ({ handleChange, isChecked, quizTitle, quizIcon }) => {
     <nav className="navbar flex">
       {quizTitle && (
         <div className="logo-icon flex">
-          <div className="title-icon-box">
+          <div
+            className={`title-icon-box flex ${quizTitle.toLowerCase()}-icon`}
+          >
             <img
               src={`${import.meta.env.BASE_URL}${quizIcon}`}
               alt="question category"
-              className={`title-icon ${quizTitle.toLowerCase()}-icon`}
+              className={`title-icon`}
             />
           </div>
           <h1 className="logo-title">{quizTitle}</h1>

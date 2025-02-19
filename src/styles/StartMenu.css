@@ -1,8 +1,18 @@
-/* .start-menu-container {
-  justify-content: start;
-  align-items: start;
+.start-menu-container {
+  /* justify-content: start;
+  align-items: start; */
+  border: 1px solid red;
 }
 
+.welcome-msg {
+  border: 1px solid blue;
+}
+
+.btn-container {
+  border: 1px solid green;
+}
+
+/* 
 .welcome-msg {
   flex: 1;
 }

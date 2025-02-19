@@ -1,7 +1,6 @@
 .navbar {
   justify-content: space-between;
-  margin-bottom: 32px;
-  padding: 16px 24px;
+  margin-bottom: 48px;
 }
 
 .logo-icon {
@@ -10,15 +9,21 @@
 
 .title-icon-box {
   border-radius: 6px;
+  padding: 5.73px;
+  overflow: hidden;
 }
 
 .title-icon {
   height: 28.57px;
-  width: 28.75px;
+  width: 28.57px;
+  transition: height 0.3s ease-in-out, width 0.25s ease-in-out,
+    color 0.3s ease-in-out;
 }
 
 .logo-title {
   font-size: var(--body-s);
+  font-weight: 500;
+  transition: font-size 0.3s ease-in-out;
 }
 
 .toggle-container {
@@ -45,7 +50,8 @@
   width: 32px;
   border-radius: 1em;
   background-color: var(--purple);
-  transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out, transform 250ms ease-in-out,
+    width 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
 .toggle + label::after {
@@ -58,7 +64,8 @@
   top: 50%; /* Center it vertically */
   left: 4px; /* Small padding from the left */
   transform: translateY(-50%); /* Adjust to center */
-  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, height 0.3s ease-in-out,
+    width 0.3s ease-in-out;
 }
 
 .toggle:checked + label::after {
@@ -68,4 +75,68 @@
 .icon-size {
   width: 16px;
   height: 16px;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+/* Tablets (768px+ */
+@media (min-width: 768px) {
+  .navbar {
+    margin-bottom: 49px;
+  }
+
+  .logo-icon {
+    gap: 24px;
+  }
+
+  .title-icon-box {
+    padding: 8px;
+  }
+
+  .title-icon {
+    height: 40px;
+    width: 40px;
+  }
+
+  .toggle-container {
+    gap: 16px;
+  }
+
+  .toggle + label::before {
+    height: 28px;
+    width: 48px;
+  }
+
+  .toggle + label::after {
+    height: 20px;
+    width: 20px;
+    left: 5px;
+  }
+
+  .toggle:checked + label::after {
+    transform: translate(17px, -50%); /* Moves the circle right */
+  }
+
+  .icon-size {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+/* Midpoint - Large Tablets & Small Laptops (1024px+) */
+@media (min-width: 1024px) {
+  .navbar {
+    margin-bottom: 66px;
+  }
+
+  .icon-size {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Desktops */
+@media (min-width: 1440px) {
+  .navbar {
+    margin-bottom: 83px;
+  }
 }

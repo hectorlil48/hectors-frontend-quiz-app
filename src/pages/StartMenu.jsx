@@ -21,7 +21,7 @@ const StartMenu = ({ setQuizData, setQuizTitle, setQuizIcon }) => {
   };
 
   return (
-    <div className="start-menu-container flex">
+    <div className="start-menu-container">
       <div className="welcome-msg">
         <h2 className="start-menu-title">
           Welcome to the

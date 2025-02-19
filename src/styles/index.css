@@ -77,10 +77,13 @@ body {
 
 .App {
   min-height: 100vh;
+  width: 100%;
+  padding: 16px 24px 0px;
   background-color: var(--background-color);
   color: var(--primary-text-color);
-  transition: background-color 0.25s ease-in-out,
-    background-image 0.25s ease-in-out, color 0.25s ease-in-out;
+  transition: background-color 0.3s ease-in-out,
+    background-image 0.3s ease-in-out, color 0.3s ease-in-out,
+    padding 0.3s ease-in-out;
 }
 
 .flex {
@@ -89,14 +92,12 @@ body {
   align-items: center;
 }
 
-/*
 .container {
-  width: 1160px;
+  max-width: 1157px;
   margin: 0 auto;
-  padding-top: 83px;
 }
 
-
+/*
 h2 {
   font-size: var(--font-size-heading-L);
   font-weight: 300;
@@ -128,3 +129,34 @@ button.btn img {
   padding: 8px;
   border-radius: 6px;
 }  */
+
+/* Larger Phones / Small Tablets */
+@media (min-width: 480px) {
+  .App {
+    padding: 28px 44px 0px;
+  }
+}
+
+/* Tablets (768px+ */
+@media (min-width: 768px) {
+  :root {
+    --body-s: 1.75rem;
+  }
+  .App {
+    padding: 40px 64px 0px;
+  }
+}
+
+/* Midpoint - Large Tablets & Small Laptops (1024px+) */
+@media (min-width: 1024px) {
+  .App {
+    padding-top: 60px;
+  }
+}
+
+/* Desktops */
+@media (min-width: 1440px) {
+  .App {
+    padding-top: 83px;
+  }
+}
