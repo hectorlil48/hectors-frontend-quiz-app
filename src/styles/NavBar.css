@@ -21,7 +21,7 @@
 }
 
 .logo-title {
-  font-size: var(--body-s);
+  font-size: var(--font-size-heading-S);
   font-weight: 500;
   transition: font-size 0.3s ease-in-out;
 }
@@ -78,6 +78,23 @@
   transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
+@media (min-width: 480px) {
+  .toggle + label::before {
+    height: 24px;
+    width: 40px;
+  }
+
+  .toggle + label::after {
+    height: 16px;
+    width: 16px;
+    left: 5px;
+  }
+
+  .toggle:checked + label::after {
+    transform: translate(14px, -50%); /* Moves the circle right */
+  }
+}
+
 /* Tablets (768px+ */
 @media (min-width: 768px) {
   .navbar {
@@ -113,7 +130,7 @@
   }
 
   .toggle:checked + label::after {
-    transform: translate(17px, -50%); /* Moves the circle right */
+    transform: translate(18px, -50%); /* Moves the circle right */
   }
 
   .icon-size {

@@ -1,41 +1,36 @@
 .start-menu-container {
-  /* justify-content: start;
-  align-items: start; */
-  border: 1px solid red;
+  flex-direction: column;
+  align-items: start;
 }
 
 .welcome-msg {
-  border: 1px solid blue;
-}
-
-.btn-container {
-  border: 1px solid green;
-}
-
-/* 
-.welcome-msg {
-  flex: 1;
+  margin-bottom: 40px;
+  transition: margin-bottom 0.3s ease-in-out;
 }
 
 .btn-container {
   flex-direction: column;
-  flex: 1;
-  gap: 24px;
+  gap: 12px;
+  width: 100%;
+  transition: gap 0.3s ease-in-out;
 }
 
 .start-menu-title {
-  margin-bottom: 48px;
+  margin-bottom: 8px;
 }
 
 .bold {
   font-weight: 500;
+  margin-bottom: 16px;
+  transition: margin-bottom 0.3s ease-in-out;
 }
 
 .pick-msg {
   font-size: var(--body-s);
+  font-style: italic;
   color: var(--pick-msg-color);
-  transition: color 0.25s ease-in-out;
-}  */
+  transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
+}
 
 /* Icon colors */
 .html-icon {
@@ -52,4 +47,40 @@
 
 .accessibility-icon {
   background-color: var(--accessibility-bg-color);
+}
+
+/* Larger Phones / Small Tablets */
+@media (min-width: 480px) {
+  .welcome-msg {
+    margin-bottom: 52px;
+  }
+
+  .btn-container {
+    gap: 18px;
+  }
+}
+
+/* Tablets (768px+ */
+@media (min-width: 768px) {
+  .welcome-msg {
+    margin-bottom: 64px;
+  }
+
+  .btn-container {
+    gap: 24px;
+  }
+}
+
+/* Midpoint - Large Tablets & Small Laptops (1024px+) */
+@media (min-width: 1024px) {
+  .bold {
+    margin-bottom: 32px;
+  }
+}
+
+/* Desktops */
+@media (min-width: 1440px) {
+  .bold {
+    margin-bottom: 48px;
+  }
 }

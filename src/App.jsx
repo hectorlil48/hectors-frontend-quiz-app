@@ -21,6 +21,29 @@ function App() {
           quizIcon={quizIcon}
           handleChange={() => setIsDark(!isDark)}
         />
+        {!quizData ? (
+          <StartMenu
+            setQuizData={setQuizData}
+            setQuizTitle={setQuizTitle}
+            setQuizIcon={setQuizIcon}
+          />
+        ) : quizData.completed ? (
+          <Results
+            score={score}
+            setScore={setScore}
+            totalQuestions={quizData.questions.length}
+            setQuizData={setQuizData}
+            setQuizTitle={setQuizTitle}
+            quizTitle={quizTitle}
+            quizIcon={quizIcon}
+          />
+        ) : (
+          <QuizPage
+            quizData={quizData}
+            setQuizData={setQuizData}
+            setScore={setScore}
+          />
+        )}
       </div>
     </div>
   );
