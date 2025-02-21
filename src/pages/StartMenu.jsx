@@ -41,7 +41,7 @@ const StartMenu = ({ setQuizData, setQuizTitle, setQuizIcon }) => {
             >
               <div className="flex btn-content">
                 <div
-                  className={`btn-icon-box flex ${quiz.title.toLowerCase()}-icon`}
+                  className={`btn-icon-box flex  ${quiz.title.toLowerCase()}-icon`}
                 >
                   <img
                     src={`${import.meta.env.BASE_URL}${quiz.icon}`}

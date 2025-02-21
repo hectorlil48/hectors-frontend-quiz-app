@@ -79,7 +79,19 @@
 }
 
 /* Desktops */
-@media (min-width: 1440px) {
+@media (min-width: 1110px) {
+  .start-menu-container {
+    flex-direction: row;
+  }
+
+  .welcome-msg {
+    flex: 1;
+  }
+
+  .btn-container {
+    flex: 1;
+  }
+
   .bold {
     margin-bottom: 48px;
   }

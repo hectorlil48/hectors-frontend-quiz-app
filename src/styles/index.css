@@ -29,8 +29,6 @@
   --js-bg-color: #ebf0ff;
   --accessibility-bg-color: #f6e7ff;
 
-  --background-image: url("../assets/images/pattern-background-desktop-light.svg");
-
   /* Font Family and mobile sizes */
   --font-family-main: "Rubik", sans-serif;
   --font-size-display: 9rem;
@@ -43,17 +41,16 @@
 }
 
 /* dark-mode colors */
-
 [data-theme="dark"] {
   --background-color: #313e51;
   --primary-text-color: #fff;
   --pick-msg-color: #abc1e1;
   --btn-bg-color: #3b4d66;
   --box-shadow-color: rgba(49, 62, 81, 0.14);
+}
 
-  --background-image: url("../assets/images/pattern-background-tablet-dark.svg");
-
-  transition: background-color 3s ease, color 3s ease;
+[data-theme="dark"].App {
+  background-image: url("../assets/images/pattern-background-mobile-dark.svg");
 }
 
 *,
@@ -83,6 +80,9 @@ body {
   width: 100%;
   padding: 16px 24px 0px;
   background-color: var(--background-color);
+  background-image: url("../assets/images/pattern-background-mobile-light.svg");
+  background-repeat: no-repeat;
+  background-position: left 6px top -20px;
   color: var(--primary-text-color);
   transition: background-color 0.3s ease-in-out,
     background-image 0.3s ease-in-out, color 0.3s ease-in-out,
@@ -116,7 +116,8 @@ button.btn {
   padding: 12px;
   border-radius: 12px;
   box-shadow: 0px 16px 40px 0px var(--box-shadow-color);
-  transition: background-color 0.3s ease-in-out, font-size 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, font-size 0.3s ease-in-out,
+    border-radius 0.3s ease-in-out;
 }
 
 button.btn:hover {
@@ -155,6 +156,10 @@ button.btn:focus {
     padding: 28px 44px 0px;
   }
 
+  button.btn {
+    border-radius: 18px;
+  }
+
   .btn-content {
     gap: 24px;
   }
@@ -179,6 +184,16 @@ button.btn:focus {
   }
   .App {
     padding: 40px 64px 0px;
+    background-image: url("../assets/images/pattern-background-tablet-light.svg");
+    background-position: left 4px top -42px;
+  }
+
+  [data-theme="dark"].App {
+    background-image: url("../assets/images/pattern-background-tablet-dark.svg");
+  }
+
+  button.btn {
+    border-radius: 24px;
   }
 
   .btn-content {
@@ -204,8 +219,19 @@ button.btn:focus {
 }
 
 /* Desktops */
-@media (min-width: 1440px) {
+@media (min-width: 1110px) {
   .App {
     padding-top: 83px;
+    background-image: url("../assets/images/pattern-background-desktop-light.svg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  [data-theme="dark"].App {
+    background-image: url("../assets/images/pattern-background-desktop-dark.svg");
+  }
+
+  button.btn {
+    padding: 20px;
   }
 }
