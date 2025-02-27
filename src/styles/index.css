@@ -9,6 +9,7 @@
   --pick-msg-color: #626c7f;
   --btn-bg-color: #fff;
   --box-shadow-color: rgba(143, 160, 193, 0.14);
+  --error-message: #ee5454;
 
   /* colors for buttons and text */
 
@@ -46,6 +47,7 @@
   --primary-text-color: #fff;
   --pick-msg-color: #abc1e1;
   --btn-bg-color: #3b4d66;
+  --error-message: #fff;
   --box-shadow-color: rgba(49, 62, 81, 0.14);
 }
 
@@ -67,7 +69,6 @@ button {
   cursor: pointer;
   color: inherit;
   font-family: inherit;
-  line-height: inherit;
 }
 
 body {
@@ -110,7 +111,6 @@ h2 {
 button.btn {
   background-color: var(--btn-bg-color);
   width: 100%;
-  height: 64px;
   padding: 12px;
   justify-content: space-between;
   font-size: var(--font-size-heading-S);
@@ -145,7 +145,6 @@ button.btn {
   :root {
     --body-s: 1rem;
     --font-size-heading-L: 3.25rem;
-    --font-size-heading-S: 1.5rem;
     --font-size-body-M: 1.5rem;
   }
   .App {
@@ -153,7 +152,6 @@ button.btn {
   }
 
   button.btn {
-    height: 72px;
     border-radius: 18px;
   }
 
@@ -177,6 +175,7 @@ button.btn {
   :root {
     --body-s: 1.25rem;
     --font-size-heading-L: 4rem;
+    --font-size-heading-M: 1.75rem;
     --font-size-heading-S: 1.75rem;
   }
   .App {
@@ -190,7 +189,6 @@ button.btn {
   }
 
   button.btn {
-    height: 80px;
     border-radius: 24px;
   }
 
@@ -226,6 +224,10 @@ button.btn {
 
 /* Desktops */
 @media (min-width: 1110px) {
+  :root {
+    --font-size-heading-M: 2.25rem;
+  }
+
   .App {
     padding-top: 83px;
     background-image: url("../assets/images/pattern-background-desktop-light.svg");
@@ -238,6 +240,6 @@ button.btn {
   }
 
   button.btn {
-    padding: 20px;
+    padding: 18px;
   }
 }

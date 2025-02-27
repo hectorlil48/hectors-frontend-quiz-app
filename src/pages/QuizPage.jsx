@@ -14,6 +14,7 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
   const [attempts, setAttempts] = useState(0);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [shuffledOptions, setShuffledOptions] = useState([]);
+  const [canProceed, setCanProceed] = useState(false);
 
   // Shuffle function using Fisher-Yates algorithm
   const shuffleArray = (array) => {
@@ -48,14 +49,14 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
     if (selectedAnswer === question.answer) {
       setScore((prev) => prev + 1);
       setShowCorrect(true);
-      setTimeout(() => goToNextQuestion(), 1000);
+      setCanProceed(true);
     } else {
       setIsWrong(true);
       setAttempts((prev) => prev + 1);
 
       if (attempts + 1 === 2) {
         setShowCorrect(true);
-        setTimeout(() => goToNextQuestion(), 1500);
+        setCanProceed(true);
       }
     }
   };
@@ -68,6 +69,7 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
       setShowCorrect(false);
       setAttempts(0);
       setShowErrorMessage(false);
+      setCanProceed(false);
     } else {
       setQuizData({ ...quizData, completed: true });
     }
@@ -115,7 +117,7 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
                 >
                   {answerLetters[i]}
                 </span>
-                <span>{option}</span>
+                <span className="options">{option}</span>
               </div>
 
               {isIncorrect && (
@@ -131,8 +133,11 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
             </button>
           );
         })}
-        <button className="btn submit-btn" onClick={handleSubmit}>
-          Submit Answer
+        <button
+          className="btn submit-btn"
+          onClick={canProceed ? goToNextQuestion : handleSubmit}
+        >
+          {canProceed ? "Next Question" : "Submit Answer"}
         </button>
         {showErrorMessage && (
           <div className="flex error-message">

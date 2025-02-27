@@ -24,6 +24,10 @@
   transition: height 0.3s ease-in-out;
 }
 
+.options {
+  text-align: start;
+}
+
 .answer-letter-color {
   background-color: var(--light-grey);
   color: var(--grey-navy);
@@ -74,7 +78,7 @@ button.submit-btn {
 }
 
 .error-message {
-  color: var(--pure-white);
+  color: var(--error-message);
   font-size: var(--font-size-body-M);
   gap: 8px;
 }
@@ -113,5 +117,17 @@ button.submit-btn {
 
   button.submit-btn:hover {
     background-color: var(--light-purple);
+  }
+}
+
+/* Desktops */
+@media (min-width: 1350px) {
+  .quiz-container {
+    flex-direction: row;
+    gap: 131px;
+  }
+
+  .question-container {
+    width: 465px;
   }
 }
