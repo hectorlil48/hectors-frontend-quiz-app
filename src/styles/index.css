@@ -33,9 +33,9 @@
   --font-family-main: "Rubik", sans-serif;
   --font-size-display: 9rem;
   --font-size-heading-L: 2.5rem;
-  --font-size-heading-M: 2.25rem;
+  --font-size-heading-M: 1.25rem;
   --font-size-heading-S: 1.125rem;
-  --font-size-body-M: 1.5rem;
+  --font-size-body-M: 1.125rem;
   --font-size-body: 0.75rem;
   --body-s: 0.875rem;
 }
@@ -110,26 +110,21 @@ h2 {
 button.btn {
   background-color: var(--btn-bg-color);
   width: 100%;
-  justify-content: start;
+  height: 64px;
+  padding: 12px;
+  justify-content: space-between;
   font-size: var(--font-size-heading-S);
   font-weight: 500;
-  padding: 12px;
   border-radius: 12px;
   box-shadow: 0px 16px 40px 0px var(--box-shadow-color);
   transition: background-color 0.3s ease-in-out, font-size 0.3s ease-in-out,
-    border-radius 0.3s ease-in-out;
-}
-
-button.btn:hover {
-  transform: scale(1.05);
-}
-
-button.btn:focus {
-  transform: scale(1.05);
+    border-radius 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
 .btn-content {
+  justify-content: start;
   gap: 16px;
+  width: 90%;
   transition: gap 0.3s ease-in-out;
 }
 
@@ -151,12 +146,14 @@ button.btn:focus {
     --body-s: 1rem;
     --font-size-heading-L: 3.25rem;
     --font-size-heading-S: 1.5rem;
+    --font-size-body-M: 1.5rem;
   }
   .App {
     padding: 28px 44px 0px;
   }
 
   button.btn {
+    height: 72px;
     border-radius: 18px;
   }
 
@@ -193,6 +190,7 @@ button.btn:focus {
   }
 
   button.btn {
+    height: 80px;
     border-radius: 24px;
   }
 
@@ -215,6 +213,14 @@ button.btn:focus {
 @media (min-width: 1024px) {
   .App {
     padding-top: 60px;
+  }
+
+  button.btn:hover {
+    transform: scale(1.05);
+  }
+
+  button.btn:focus {
+    transform: scale(1.05);
   }
 }
 

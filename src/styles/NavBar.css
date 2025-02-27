@@ -8,7 +8,7 @@
 }
 
 .title-icon-box {
-  border-radius: 6px;
+  border-radius: 4px;
   padding: 5.73px;
   overflow: hidden;
 }
@@ -56,13 +56,13 @@
 
 .toggle + label::after {
   content: "";
-  height: 12px;
-  width: 12px;
+  height: 13px;
+  width: 13px;
   border-radius: 1em;
   background-color: var(--pure-white);
   position: absolute;
   top: 50%; /* Center it vertically */
-  left: 4px; /* Small padding from the left */
+  left: 3px; /* Small padding from the left */
   transform: translateY(-50%); /* Adjust to center */
   transition: transform 250ms ease-in-out, height 0.3s ease-in-out,
     width 0.3s ease-in-out;

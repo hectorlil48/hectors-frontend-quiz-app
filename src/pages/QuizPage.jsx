@@ -131,11 +131,7 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
             </button>
           );
         })}
-        <button
-          className="btn submit-btn"
-          onClick={handleSubmit}
-          disabled={selectedAnswer === null}
-        >
+        <button className="btn submit-btn" onClick={handleSubmit}>
           Submit Answer
         </button>
         {showErrorMessage && (

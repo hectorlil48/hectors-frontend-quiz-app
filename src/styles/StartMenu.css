@@ -27,6 +27,7 @@
 
 .pick-msg {
   font-size: var(--body-s);
+  line-height: 150%;
   font-style: italic;
   color: var(--pick-msg-color);
   transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
