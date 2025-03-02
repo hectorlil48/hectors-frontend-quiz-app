@@ -139,6 +139,7 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
         >
           {canProceed ? "Next Question" : "Submit Answer"}
         </button>
+
         {showErrorMessage && (
           <div className="flex error-message">
             <img src={errorIcon} alt="Incorrect" className="icon-incorrect" />

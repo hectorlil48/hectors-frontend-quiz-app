@@ -32,7 +32,7 @@
 
   /* Font Family and mobile sizes */
   --font-family-main: "Rubik", sans-serif;
-  --font-size-display: 9rem;
+  --font-size-display: 5.5rem;
   --font-size-heading-L: 2.5rem;
   --font-size-heading-M: 1.25rem;
   --font-size-heading-S: 1.125rem;
@@ -146,6 +146,8 @@ button.btn {
     --body-s: 1rem;
     --font-size-heading-L: 3.25rem;
     --font-size-body-M: 1.5rem;
+    --font-size-display: 7.25rem;
+    --font-size-body-M: 1.3125rem;
   }
   .App {
     padding: 28px 44px 0px;
@@ -177,6 +179,8 @@ button.btn {
     --font-size-heading-L: 4rem;
     --font-size-heading-M: 1.75rem;
     --font-size-heading-S: 1.75rem;
+    --font-size-display: 9rem;
+    --font-size-body-M: 1.5rem;
   }
   .App {
     padding: 40px 64px 0px;

@@ -3,12 +3,11 @@ import NavBar from "./components/NavBar";
 import StartMenu from "./pages/StartMenu";
 import QuizPage from "./pages/QuizPage";
 import Results from "./pages/Results";
-import { useState } from "react";
 
 function App() {
   const [isDark, setIsDark] = useLocalStorage("isDark", false);
   const [quizData, setQuizData] = useLocalStorage("quizData", null);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useLocalStorage("score", 0);
   const [quizTitle, setQuizTitle] = useLocalStorage("quizTitle", "");
   const [quizIcon, setQuizIcon] = useLocalStorage("quizIcon", "");
 

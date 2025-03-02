@@ -25,17 +25,22 @@ const Results = ({
       <div className="score-card">
         <div className="score-header flex">
           <div className="flex logo-icon">
-            <img
-              src={`${import.meta.env.BASE_URL}${quizIcon}`}
-              alt="question category"
-              className={`title-icon ${quizTitle.toLowerCase()}-icon`}
-            />
-            <h1>{quizTitle}</h1>
+            <div
+              className={`title-icon-box flex ${quizTitle.toLowerCase()}-icon`}
+            >
+              <img
+                src={`${import.meta.env.BASE_URL}${quizIcon}`}
+                alt="question category"
+                className={`title-icon`}
+              />
+            </div>
+            <h1 className="logo-title">{quizTitle}</h1>
           </div>
-          <p className="score-title">{score}</p>
-          <p className="pick-msg">out of {totalQuestions}</p>
+          <div className="score-box flex">
+            <p className="score-title">{score}</p>
+            <p className="total">out of {totalQuestions}</p>
+          </div>
         </div>
-
         <button className="btn submit-btn" onClick={handlePlayAgain}>
           Play Again
         </button>
