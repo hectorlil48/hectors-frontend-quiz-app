@@ -14,9 +14,6 @@ This is a solution to the [Frontend quiz app challenge on Frontend Mentor](https
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -38,20 +35,15 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](./screenshots/desktop-light.png)
+![](./screenshots/desktop-dark.png)
+![](./screenshots/tablet-dark-active.png)
+![](./screenshots/error-moblie-dark.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Repo URL](https://github.com/hectorlil48/hectors-frontend-quiz-app)
+- Live Site URL: [Live Site URl](https://hectorlil48.github.io/hectors-frontend-quiz-app/)
 
 ## My process
 
@@ -60,63 +52,89 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Building this quiz app was an incredible learning experience. While I initially watched a tutorial to understand the basics of React, I ended up learning so much more as I got deeper into the project.
 
-To see how you can add code snippets, see below:
+- Passing Props: I learned how to pass data between components using props, which allowed me to make my app dynamic and reusable.
+
+- Setting Up My Folder Structure: Organizing the project folder was a key skill. It helped me maintain clarity and efficiency, especially as my app grew.
+
+- Conditional Logic: Writing conditionals was essential for handling different states, such as toggling the button between “Submit” and “Next Question.” This taught me how to manage user flow effectively.
+
+- Implementing Dark/Light Mode: I learned how to switch between dark and light modes, providing a more customizable user experience.
+
+- Component Interaction: I gained a deeper understanding of how different React components can communicate and work together, making the app modular and scalable.
+
+- Using useEffect: I used the useEffect hook to fetch data from my JSON file, which gave me hands-on experience with React hooks and data management.
+
+- Handling onClick Events: Learning how to handle onClick events allowed me to make the app interactive, especially for navigation between questions.
+
+- Deploying on GitHub Pages: Finally, I learned how to deploy my app to GitHub Pages, making it accessible to anyone and giving me real-world experience in app deployment.
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<div className="App" data-theme={isDark ? "dark" : "light"} role="main"></div>
 ```
 
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+[data-theme="dark"] {
+  --background-color: #313e51;
+  --primary-text-color: #fff;
+  --pick-msg-color: #abc1e1;
+  --btn-bg-color: #3b4d66;
+  --error-message: #fff;
+  --box-shadow-color: rgba(49, 62, 81, 0.14);
+}
+
+[data-theme="dark"].App {
+  background-image: url("../assets/images/pattern-background-mobile-dark.svg");
 }
 ```
 
 ```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
+useEffect(() => {
+  fetch("/hectors-frontend-quiz-app/data.json")
+    .then((response) => response.json())
+    .then((data) => {
+      setQuizzes(data.quizzes);
+    })
+    .catch((error) => console.error("Error fetching data:", error));
+}, []);
+
+const handleQuizSelection = (quiz) => {
+  setQuizTitle(quiz.title); // Store quiz title in local storage
+  setQuizIcon(quiz.icon);
+  setQuizData({ ...quiz, index: 0, completed: false }); // Store quiz data
 };
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+Building the quiz app marked just the beginning of my journey in web development. As I reflect on the progress I've made, I'm excited about the areas where I can continue to grow.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- Mastering React: While I’ve grasped the basics of React, I know there’s still much to explore. I’m eager to dive deeper into advanced concepts like Context API, React Router, and state management with Redux to build more complex applications.
+
+- Improving Problem-Solving Skills: Each challenge I faced in this project—whether it was debugging, optimizing performance, or handling edge cases—helped me refine my problem-solving abilities. I plan to continue strengthening this skill by tackling more complex projects and learning from each step.
+
+- Exploring Testing: I want to explore writing tests for my applications to ensure they are robust and maintainable. Understanding tools like Jest and React Testing Library will be a priority in my next steps.
+
+- Focusing on UI/UX: While I’ve made the quiz app functional, I see room for improvement in terms of design and user experience. I plan to study more about UI/UX principles to make my apps more user-friendly and visually appealing.
+
+- Back-End Development: While I’ve worked with front-end technologies, I want to expand my knowledge to full-stack development. I plan to work with Node.js, Express, and databases like MongoDB to build complete web applications.
+
+- Deployment and CI/CD: I’m also interested in learning more about deployment practices, Continuous Integration (CI), and Continuous Deployment (CD) to automate my workflow and ensure smooth project releases.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [ChatGPT](https://chatgpt.com/) - This tool was invaluable for brainstorming ideas, refining technical descriptions, and troubleshooting code efficiently. I appreciated how it provided clear examples and explanations tailored to my projects.
+- [React.dev](https://react.dev/) - The official React documentation was my go-to for understanding core concepts like state management, hooks, and component lifecycle. It helped me structure my app efficiently and follow best practices.
+- [MDN Web Docs](https://developer.mozilla.org/en-US/) - I relied on MDN for JavaScript references, especially when working with event listeners, array methods, and handling user inputs in my quiz logic.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- GitHub - [Hector Ramirez](https://github.com/hectorlil48)
+- Frontend Mentor - [@hectorlil48](https://www.frontendmentor.io/profile/hectorlil48)
+- LinkedIn - [@linkedin.com/in/hector-ramirez-6a6509170](https://www.linkedin.com/in/hector-ramirez-6a6509170/)
