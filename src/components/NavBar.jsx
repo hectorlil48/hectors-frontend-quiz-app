@@ -5,11 +5,22 @@ import sunIconLight from "../assets/images/icon-sun-light.svg";
 import moonIconLight from "../assets/images/icon-moon-light.svg";
 import "../styles/NavBar.css";
 
-const NavBar = ({ handleChange, isChecked, quizTitle, quizIcon }) => {
+const NavBar = ({
+  handleChange,
+  isChecked,
+  quizTitle,
+  quizIcon,
+  handleRestart,
+}) => {
   return (
     <nav className="navbar flex">
       {quizTitle && (
-        <div className="logo-icon flex">
+        <div
+          className="logo-icon flex"
+          onClick={handleRestart}
+          role="button"
+          aria-label="Restart Quiz"
+        >
           <div
             className={`title-icon-box flex ${quizTitle.toLowerCase()}-icon`}
             role="img"

@@ -11,6 +11,12 @@ function App() {
   const [quizTitle, setQuizTitle] = useLocalStorage("quizTitle", "");
   const [quizIcon, setQuizIcon] = useLocalStorage("quizIcon", "");
 
+  const handleRestart = () => {
+    setQuizData(null);
+    setQuizTitle(null);
+    setScore(0);
+  };
+
   return (
     <div className="App" data-theme={isDark ? "dark" : "light"} role="main">
       <div className="container">
@@ -19,6 +25,7 @@ function App() {
           quizTitle={quizTitle}
           quizIcon={quizIcon}
           handleChange={() => setIsDark(!isDark)}
+          handleRestart={handleRestart}
           role="navigation"
         />
         {!quizData ? (
@@ -30,12 +37,10 @@ function App() {
         ) : quizData.completed ? (
           <Results
             score={score}
-            setScore={setScore}
             totalQuestions={quizData.questions.length}
-            setQuizData={setQuizData}
-            setQuizTitle={setQuizTitle}
             quizTitle={quizTitle}
             quizIcon={quizIcon}
+            handleRestart={handleRestart}
           />
         ) : (
           <QuizPage

@@ -2,18 +2,11 @@ import "../styles/Results.css";
 
 const Results = ({
   score,
-  setScore,
   totalQuestions,
-  setQuizData,
-  setQuizTitle,
   quizTitle,
   quizIcon,
+  handleRestart,
 }) => {
-  const handlePlayAgain = () => {
-    setQuizData(null);
-    setQuizTitle(null);
-    setScore(0);
-  };
   return (
     <div className="results-container flex">
       <div className="results-title">
@@ -41,7 +34,7 @@ const Results = ({
             <p className="total">out of {totalQuestions}</p>
           </div>
         </div>
-        <button className="btn submit-btn" onClick={handlePlayAgain}>
+        <button className="btn submit-btn" onClick={handleRestart}>
           Play Again
         </button>
       </div>

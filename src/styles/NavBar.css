@@ -5,6 +5,7 @@
 
 .logo-icon {
   gap: 16px;
+  cursor: pointer;
 }
 
 .title-icon-box {
