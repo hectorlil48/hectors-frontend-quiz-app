@@ -12,6 +12,8 @@ const NavBar = ({ handleChange, isChecked, quizTitle, quizIcon }) => {
         <div className="logo-icon flex">
           <div
             className={`title-icon-box flex ${quizTitle.toLowerCase()}-icon`}
+            role="img"
+            aria-label={`${quizTitle} icon`}
           >
             <img
               src={`${import.meta.env.BASE_URL}${quizIcon}`}
@@ -19,7 +21,14 @@ const NavBar = ({ handleChange, isChecked, quizTitle, quizIcon }) => {
               className={`title-icon`}
             />
           </div>
-          <h1 className="logo-title">{quizTitle}</h1>
+          <h1
+            className="logo-title"
+            role="heading"
+            aria-level="1"
+            aria-label={`Quiz Title: ${quizTitle}`}
+          >
+            {quizTitle}{" "}
+          </h1>
         </div>
       )}
       <div className="toggle-container flex">

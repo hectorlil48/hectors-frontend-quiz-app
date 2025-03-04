@@ -77,12 +77,18 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
 
   return (
     <div className="quiz-container flex">
-      <div className="question-container">
+      <div className="question-container flex">
         <div className="pick-msg-container">
           <p className="pick-msg">
             Question {index + 1} of {questions.length}
           </p>
           <h3 className="question">{question.question}</h3>
+        </div>
+        <div className="progress-bar-container flex">
+          <div
+            className="progress-bar"
+            style={{ width: `${((index + 1) / questions.length) * 100}%` }}
+          ></div>
         </div>
       </div>
       <div className="answers btn-container flex">
@@ -103,6 +109,8 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
                }`}
               onClick={() => handleAnswerSelect(option)}
               disabled={attempts === 2}
+              aria-label={`Select option ${answerLetters[i]}: ${option}`}
+              role="button"
             >
               <div className="flex btn-content">
                 <span
@@ -136,12 +144,14 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
         <button
           className="btn submit-btn"
           onClick={canProceed ? goToNextQuestion : handleSubmit}
+          aria-label={canProceed ? "Go to next question" : "Submit answer"}
+          role="button"
         >
           {canProceed ? "Next Question" : "Submit Answer"}
         </button>
 
         {showErrorMessage && (
-          <div className="flex error-message">
+          <div className="flex error-message" aria-live="assertive">
             <img src={errorIcon} alt="Incorrect" className="icon-incorrect" />
             <p>Please select an answer</p>
           </div>

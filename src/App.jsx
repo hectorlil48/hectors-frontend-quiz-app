@@ -12,13 +12,14 @@ function App() {
   const [quizIcon, setQuizIcon] = useLocalStorage("quizIcon", "");
 
   return (
-    <div className="App" data-theme={isDark ? "dark" : "light"}>
+    <div className="App" data-theme={isDark ? "dark" : "light"} role="main">
       <div className="container">
         <NavBar
           isChecked={isDark}
           quizTitle={quizTitle}
           quizIcon={quizIcon}
           handleChange={() => setIsDark(!isDark)}
+          role="navigation"
         />
         {!quizData ? (
           <StartMenu

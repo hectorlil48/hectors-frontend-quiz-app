@@ -4,6 +4,10 @@
 }
 
 .question-container {
+  flex-direction: column;
+  align-items: start;
+  gap: 24px;
+  width: 100%;
   margin-bottom: 40px;
 }
 
@@ -12,6 +16,23 @@
   font-size: var(--font-size-heading-M);
   font-weight: 500;
   line-height: 120%;
+}
+
+.progress-bar-container {
+  justify-content: start;
+  width: 100%;
+  height: 16px;
+  background-color: var(--btn-bg-color);
+  border-radius: 999px;
+  overflow: hidden;
+  padding: 4px;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: var(--purple);
+  transition: width 0.3s ease-in-out;
+  border-radius: 104px;
 }
 
 .answer-letters {
@@ -46,7 +67,7 @@ button:focus .answer-letter-color {
 button.submit-btn {
   background-color: var(--purple);
   color: var(--pure-white);
-  height: 56px;
+  padding: 16px;
   transition: height 0.3s ease-in-out;
 }
 
@@ -85,25 +106,30 @@ button.submit-btn {
 
 /* Larger Phones / Small Tablets */
 @media (min-width: 480px) {
+  .question-container {
+    margin-bottom: 52px;
+    gap: 32px;
+  }
+
   .answer-letters {
     height: 48px;
     width: 48px;
-  }
-
-  button.submit-btn {
-    height: 74px;
   }
 }
 
 /* Tablets (768px+ */
 @media (min-width: 768px) {
+  .question-container {
+    margin-bottom: 64px;
+    gap: 40px;
+  }
+
   .answer-letters {
     height: 56px;
     width: 56px;
   }
 
   button.submit-btn {
-    height: 92px;
     padding: 32px;
   }
 }
@@ -128,6 +154,9 @@ button.submit-btn {
   }
 
   .question-container {
+    justify-content: space-between;
     width: 465px;
+    height: 452px;
+    margin-bottom: 0;
   }
 }
