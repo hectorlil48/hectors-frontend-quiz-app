@@ -23,7 +23,7 @@ const StartMenu = ({ setQuizData, setQuizTitle, setQuizIcon }) => {
   return (
     <div className="start-menu-container flex">
       <div className="welcome-msg">
-        <h2 className="start-menu-title">Welcome to the</h2>
+        <h1 className="start-menu-title">Welcome to the</h1>
         <h2 className="bold">Frontend Quiz!</h2>
         <p className="pick-msg">Pick a subject to get started.</p>
       </div>

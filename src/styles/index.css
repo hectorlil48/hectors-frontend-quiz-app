@@ -101,6 +101,7 @@ body {
   margin: 0 auto;
 }
 
+h1,
 h2 {
   font-size: var(--font-size-heading-L);
   font-weight: 300;
