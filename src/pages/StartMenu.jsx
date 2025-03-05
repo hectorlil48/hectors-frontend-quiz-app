@@ -39,8 +39,8 @@ const StartMenu = ({ setQuizData, setQuizTitle, setQuizIcon }) => {
               className="flex btn"
               onClick={() => handleQuizSelection(quiz)}
             >
-              <div className="flex btn-content">
-                <div
+              <span className="flex btn-content">
+                <span
                   className={`btn-icon-box flex  ${quiz.title.toLowerCase()}-icon`}
                 >
                   <img
@@ -48,9 +48,9 @@ const StartMenu = ({ setQuizData, setQuizTitle, setQuizIcon }) => {
                     alt={`${quiz.title} icon`}
                     className="btn-icon"
                   />
-                </div>
+                </span>
                 <span>{quiz.title}</span>
-              </div>
+              </span>
             </button>
           ))
         )}

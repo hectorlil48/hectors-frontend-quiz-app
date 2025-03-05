@@ -112,7 +112,7 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
               aria-label={`Select option ${answerLetters[i]}: ${option}`}
               role="button"
             >
-              <div className="flex btn-content">
+              <span className="flex btn-content">
                 <span
                   className={`answer-letters flex 
                     ${isSelected ? "selected-letter" : "answer-letter-color"} 
@@ -126,7 +126,7 @@ const QuizPage = ({ quizData, setQuizData, setScore }) => {
                   {answerLetters[i]}
                 </span>
                 <span className="options">{option}</span>
-              </div>
+              </span>
 
               {isIncorrect && (
                 <img
